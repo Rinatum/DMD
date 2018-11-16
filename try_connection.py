@@ -3,6 +3,7 @@ from configparser import ConfigParser
 import psycopg2
 
 
+
 def config(filename='database.ini', section='postgresql'):
     # create a parser
     parser = ConfigParser()
@@ -21,7 +22,7 @@ def config(filename='database.ini', section='postgresql'):
     return db
 
 
-def connect():
+def create_connection():
     """ Connect to the PostgreSQL database server """
     conn = None
     try:
@@ -51,13 +52,15 @@ def connect():
 
         # close the communication with the PostgreSQL
         cur.close()
+        return conn
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
-    finally:
         if conn is not None:
             conn.close()
             print('Database connection closed.')
 
 
-if __name__ == '__main__':
-    connect()
+def stop_connection(conn):
+    if conn is not None:
+        conn.close()
+        print('Database connection closed.')
