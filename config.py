@@ -1,39 +1,20 @@
+import random, string
+
+def generate_string(length):
+   letters = string.ascii_lowercase
+   return ''.join(random.choice(letters) for i in range(length))
+
+def generate_number(length):
+        letters = string.digits
+        return ''.join(random.choice(letters) for i in range(length))
+
+Customer = {'username': generate_string(8),
+            'payment_Info': generate_number(16),
+            'Location': [-1] } #get_location() }
 
 
-creation_table = ( """
-            CREATE TABLE EMPLOYEES (
-            SSN SERIAL INT(20) PRIMARY KEY,
-            JobClass VARCHAR(20) NOT NULL,
-            PhoneNumber VARCHAR(12),
-            Name 
-            
-        )
-        """,
-        """ CREATE TABLE parts (
-                part_id SERIAL PRIMARY KEY,
-                part_name VARCHAR(255) NOT NULL
-                )
-        """,
-        """
-        CREATE TABLE part_drawings (
-                part_id INTEGER PRIMARY KEY,
-                file_extension VARCHAR(5) NOT NULL,
-                drawing_data BYTEA NOT NULL,
-                FOREIGN KEY (part_id)
-                REFERENCES parts (part_id)
-                ON UPDATE CASCADE ON DELETE CASCADE
-        )
-        """,
-        """
-        CREATE TABLE vendor_parts (
-                vendor_id INTEGER NOT NULL,
-                part_id INTEGER NOT NULL,
-                PRIMARY KEY (vendor_id , part_id),
-                FOREIGN KEY (vendor_id)
-                    REFERENCES vendors (vendor_id)
-                    ON UPDATE CASCADE ON DELETE CASCADE,
-                FOREIGN KEY (part_id)
-                    REFERENCES parts (part_id)
-                    ON UPDATE CASCADE ON DELETE CASCADE
-        )
-        """)
+personal_info = {'ssn': generate_number(8),
+                 'name': ['Joo', 'Hui', 'Anna', 'Kate' , 'Admin'],
+                  'surname': ['Lee','Sasay','Blanshet','Loh'],
+                  'e-mail': ['']
+                 }
