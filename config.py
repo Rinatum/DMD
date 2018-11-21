@@ -1,9 +1,12 @@
 
 
 creation_table = ( """
-        CREATE TABLE vendors (
-            vendor_id SERIAL PRIMARY KEY,
-            vendor_name VARCHAR(255) NOT NULL
+            CREATE TABLE EMPLOYEES (
+            SSN SERIAL INT(20) PRIMARY KEY,
+            JobClass VARCHAR(20) NOT NULL,
+            PhoneNumber VARCHAR(12),
+            Name 
+            
         )
         """,
         """ CREATE TABLE parts (
