@@ -11,14 +11,15 @@ def generate_number(length):
     return ''.join(random.choice(letters) for i in range(length))
 
 
-""" ***************** Cars ***************** """
+""" ***************** Vehicle ***************** """
 
-cars = {'colors': ['black', 'white', 'red', 'green', 'blue', 'orange'],
+cars = {
         'socket_types': [0, 1, 2],
         'models': ['lada', 'bmw', 'mercedes', 'mitsubishi', 'hyundai', 'tesla'],
         'availability': 0,
         'breakdowns': 0,
         'charge_level': range(0, 100),
+        'color': ['black', 'white', 'red', 'green', 'blue', 'orange'],
         'manager': '                ',
         }
 
@@ -47,7 +48,7 @@ employee_class = {'id': generate_number(1),
 
 """ ***************** Employees ***************** """
 
-employees = {'id': generate_number(8),
+employees = {'id_employee': generate_number(8),
              'id_personal_info': 'id of personal_info',
              'id_employee_class': 'id of employee_class'
              }
@@ -66,9 +67,26 @@ provider_has_detail = {'id_provider': 'id of provider',
                        'price': generate_number(3)
                        }
 
-""" ***************** Detail_type ***************** """
+""" ***************** DetailType ***************** """
 
 detail_type = {'id_detail_list': generate_number(3),
                'name': ['bumper', 'battery', 'wheels', 'wipers', 'alternator belt', 'spark plugs', 'fuse']
                }
+
+""" ***************** DetailRequest ***************** """
+
+detail_request = {'id_detail_request': generate_number(4),
+                  'id_provider': 'id of provider',
+                  'id_employee': 'id of employee',
+                  'id_details_list': 'id of id_details_list'
+                  }
+
+""" ***************** ProvidingsHistory ***************** """
+
+providing_history = {'idProviding': generate_number(4),
+                     'id_provider': 'id of provider',
+                     'id_workshop': 'id of workshop',
+                     'amount': generate_number(1)
+                     }
+
 
