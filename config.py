@@ -11,27 +11,37 @@ def generate_number(length):
     return ''.join(random.choice(letters) for i in range(length))
 
 
-""" ***************** Cars ***************** """
+""" ***************** Vehicle ***************** """
 
+vehicle = {
+    'id_location': 'id of location',
+    'id_socket_type': 'id of socket type',
+    'id_car_model': 'id of car_model',
+    'charge_level': range(0, 100),
+    'color': ['black', 'white', 'red', 'green', 'blue', 'orange'],
+    'id_employee': 'id of employee',
+}
 
-def get_random_email():
-    return generate_string(2) + generate_number(3) + generate_string(1) + '18'
+""" ***************** Car Status ***************** """
 
+car_status = {
+    'id_car_status': generate_number(1),
+    'status': ['Ride to Customer','Execute order', 'Free', 'Charges', 'Repair', 'Broken']
+}
 
-cars = {'colors': ['black', 'white', 'red', 'green', 'blue', 'orange'],
-        'socket_types': [0, 1, 2],
-        'models': ['lada', 'bmw', 'mercedes', 'mitsubishi', 'hyundai', 'tesla'],
-        'availability': 0,
-        'breakdowns': 0,
-        'charge_level': range(0, 100),
-        'manager': '                ',
-        }
+""" ***************** Car Model ***************** """
+
+car_model = {
+    'id_car_model': generate_number(3),
+    'model': ['lada', 'bmw', 'mercedes', 'mitsubishi', 'hyundai', 'tesla']
+}
 
 """ ***************** Customers ***************** """
 
 customers = {'username': generate_string(8),
              'payment_Info': generate_number(16),
-             'Location': [-1]}  # get_location() }
+             'location': 'id of location'
+             }
 
 """ ***************** Personal Info ***************** """
 
@@ -51,7 +61,7 @@ employee_class = {'id': generate_number(1),
 
 """ ***************** Employees ***************** """
 
-employees = {'id': generate_number(8),
+employees = {'id_employee': generate_number(8),
              'id_personal_info': 'id of personal_info',
              'id_employee_class': 'id of employee_class'
              }
@@ -65,9 +75,24 @@ provider = {'id_provider': generate_number(8),
 
 """ ***************** Provider_has_Detail ***************** """
 
-""" ***************** Employers ***************** """
+provider_has_detail = {'id_provider': 'id of provider',
+                       'id_detail_list': 'id of detailList',
+                       'price': generate_number(3)
+                       }
 
-""" ***************** Detail_type ***************** """
+""" ***************** DetailType ***************** """
+
+detail_type = {'id_detail_list': generate_number(3),
+               'name': ['bumper', 'battery', 'wheels', 'wipers', 'alternator belt', 'spark plugs', 'fuse']
+               }
+
+""" ***************** DetailRequest ***************** """
+
+detail_request = {'id_detail_request': generate_number(4),
+                  'id_provider': 'id of provider',
+                  'id_employee': 'id of employee',
+                  'id_details_list': 'id of id_details_list'
+                  }
 
 detail_type = {''}
 """ ***************** Buildings & ChargingStation ***************** """
@@ -85,3 +110,10 @@ def get_cost():
     return random.randint(200, 1000)
 
 
+""" ***************** ProvidingsHistory ***************** """
+
+providing_history = {'idProviding': generate_number(4),
+                     'id_provider': 'id of provider',
+                     'id_workshop': 'id of workshop',
+                     'amount': generate_number(1)
+                     }
