@@ -10,6 +10,7 @@ def generate_number(length):
     letters = string.digits
     return ''.join(random.choice(letters) for i in range(length))
 
+
 def get_licence_plate():
     return generate_string(2) + generate_number(3) + generate_string(1) + '18'
 
@@ -31,7 +32,7 @@ vehicle = {
 
 car_status = {
     'id_car_status': generate_number(1),
-    'status': ['Ride to Customer','Execute order', 'Free', 'Charges', 'Repair', 'Broken']
+    'status': ['Ride to Customer', 'Execute order', 'Free', 'Charges', 'Repair', 'Broken']
 }
 
 """ ***************** Car Model ***************** """
@@ -121,3 +122,12 @@ providing_history = {'idProviding': generate_number(4),
                      'id_workshop': 'id of workshop',
                      'amount': generate_number(1)
                      }
+
+""" ***************** Vending ***************** """
+vandings = {'capacity': range(20)}
+
+""" ***************** Product list ***************** """
+
+# get_id()
+products = {'name': ['chokolate', 'marmelade', 'coca-cola', 'fanta', 'waflya'],
+            'price': 100}
