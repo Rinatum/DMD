@@ -58,3 +58,14 @@ provider = {'id_provider': generate_number(8),
             'id_location': 'id of location',
             'id_personal_info': 'id of personal_info'
             }
+
+""" ***************** Provider_has_Detail ***************** """
+
+provider_has_detail = {'id_provider': 'id of provider',
+                       'id_detail_list': 'id of detailList',
+                       'price': generate_number(3)
+                       }
+
+""" ***************** Detail_type ***************** """
+
+detail_type = {''}
