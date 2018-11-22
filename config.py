@@ -68,4 +68,7 @@ provider_has_detail = {'id_provider': 'id of provider',
 
 """ ***************** Detail_type ***************** """
 
-detail_type = {''}
+detail_type = {'id_detail_list': generate_number(3),
+               'name': ['bumper', 'battery', 'wheels', 'wipers', 'alternator belt', 'spark plugs', 'fuse']
+               }
+
