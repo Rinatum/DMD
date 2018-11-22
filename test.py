@@ -1,6 +1,10 @@
 import sqlite3
 import config
-from prettytable import from_db_cursor
+
+import config
+
+print(config.customers['username'])
+print(config.customers['username'])
 
 
 
