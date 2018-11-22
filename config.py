@@ -28,8 +28,13 @@ customers = {'username': generate_string(8),
              'payment_Info': generate_number(16),
              'Location': [-1]}  # get_location() }
 
+""" ***************** Personal Info ***************** """
+
 personal_info = {'ssn': generate_number(8),
                  'name': ['Joo', 'Hui', 'Anna', 'Kate', 'Admin'],
                  'surname': ['Lee', 'Sasay', 'Blanshet', 'Loh'],
-                 'e-mail': ['']
-                 }
+                 'e-mail': [generate_string(6) + '@mail.ru',generate_string(6) + '@gmail.com',generate_string(6) + '@outlook.com'],
+                  'phone_number': "+7"+generate_string(10) }
+
+""" ***************** Employers ***************** """
+
