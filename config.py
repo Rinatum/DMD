@@ -13,15 +13,28 @@ def generate_number(length):
 
 """ ***************** Vehicle ***************** """
 
-cars = {
-        'socket_types': [0, 1, 2],
-        'models': ['lada', 'bmw', 'mercedes', 'mitsubishi', 'hyundai', 'tesla'],
-        'availability': 0,
-        'breakdowns': 0,
-        'charge_level': range(0, 100),
-        'color': ['black', 'white', 'red', 'green', 'blue', 'orange'],
-        'manager': '                ',
-        }
+vehicle = {
+    'id_location': 'id of location',
+    'id_socket_type': 'id of socket type',
+    'id_car_model': 'id of car_model',
+    'charge_level': range(0, 100),
+    'color': ['black', 'white', 'red', 'green', 'blue', 'orange'],
+    'id_employee': 'id of employee',
+}
+
+""" ***************** Car Status ***************** """
+
+car_status = {
+    'id_car_status': generate_number(1),
+    'status': ['Ride to Customer','Execute order', 'Free', 'Charges', 'Repair', 'Broken']
+}
+
+""" ***************** Car Model ***************** """
+
+car_model = {
+    'id_car_model': generate_number(3),
+    'model': ['lada', 'bmw', 'mercedes', 'mitsubishi', 'hyundai', 'tesla']
+}
 
 """ ***************** Customers ***************** """
 
@@ -88,5 +101,3 @@ providing_history = {'idProviding': generate_number(4),
                      'id_workshop': 'id of workshop',
                      'amount': generate_number(1)
                      }
-
-
