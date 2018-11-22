@@ -10,16 +10,21 @@ def generate_number(length):
     letters = string.digits
     return ''.join(random.choice(letters) for i in range(length))
 
+def get_licence_plate():
+    return generate_string(2) + generate_number(3) + generate_string(1) + '18'
+
 
 """ ***************** Vehicle ***************** """
 
 vehicle = {
+    'licence_plate': get_licence_plate(),
     'id_location': 'id of location',
     'id_socket_type': 'id of socket type',
     'id_car_model': 'id of car_model',
+    'id_car_status': 'id of car_stastus',
+    'id_employee': 'id of employee',
     'charge_level': range(0, 100),
     'color': ['black', 'white', 'red', 'green', 'blue', 'orange'],
-    'id_employee': 'id of employee',
 }
 
 """ ***************** Car Status ***************** """
@@ -94,7 +99,6 @@ detail_request = {'id_detail_request': generate_number(4),
                   'id_details_list': 'id of id_details_list'
                   }
 
-detail_type = {''}
 """ ***************** Buildings & ChargingStation ***************** """
 
 
