@@ -1,6 +1,6 @@
 import main
 
-data = main.connect()
+data = main.execute('SELECT * FROM Location')
 print(data)
 
 date = '2018-04-12'
