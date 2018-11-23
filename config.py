@@ -86,7 +86,7 @@ provider_has_detail = {'id_provider': 'id of provider',
                        'price': generate_number(3)
                        }
 
-""" ***************** DetailType ***************** """
+""" ***************** Detail Type ***************** """
 
 detail_type = {'id_detail_list': generate_number(3),
                'name': ['bumper', 'battery', 'wheels', 'wipers', 'alternator belt', 'spark plugs', 'fuse']
@@ -115,19 +115,64 @@ def get_cost():
     return random.randint(200, 1000)
 
 
-""" ***************** ProvidingsHistory ***************** """
+""" ***************** Building ***************** """
 
-providing_history = {'idProviding': generate_number(4),
+buildings = {'id_buildings': random.randint(0, 10),
+             'id_location': 'id of location'
+             }
+
+""" ***************** Workshop ***************** """
+
+workshop = {'idWorkshop': 'id of Building',
+            'timing_avalability': random.randint(0, 100)
+            }
+
+""" ***************** Charging Station ***************** """
+
+charging_station = {'id_chargingStation': 'id of Building',
+            'charging_time': random.randint(0, 20),
+            'cost': random.randint(20,40)
+            }
+
+""" ***************** Providing History ***************** """
+
+providing_history = {'id_providing': generate_number(4),
                      'id_provider': 'id of provider',
                      'id_workshop': 'id of workshop',
                      'amount': generate_number(1)
                      }
 
+""" ***************** Location ***************** """
+
+location = {'id_location': generate_number(8),
+            'id_gps': 'id of gps',
+            'Zipcode': generate_number(6),
+            'Country': ['Russia'],
+            'City': ['Izhevsk']
+            }
+
+""" ***************** GPS ***************** """
+
+
+def get_longitude():
+    return random.uniform(56.726597, 56.970032)
+
+
+def get_attitude():
+    return random.uniform(53.398777, 52.964817)
+
+
+gps = {
+    'id_gps': generate_number(8),
+    'longitude': get_longitude(),
+    'attitude': get_attitude()
+}
+
 """ ***************** Vending ***************** """
+
 vandings = {'capacity': range(20)}
 
 """ ***************** Product list ***************** """
 
-# get_id()
 products = {'name': ['chokolate', 'marmelade', 'coca-cola', 'fanta', 'waflya'],
             'price': 100}

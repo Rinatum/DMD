@@ -7,4 +7,4 @@ print(config.customers['username'])
 print(config.customers['username'])
 
 
-
+print(config.get_longitude())
