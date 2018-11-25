@@ -1,14 +1,9 @@
 import main
 
-data = main.execute('SELECT * FROM Location')
+date = '2018-09-23'
+username = 'Gfycyd'
+color = 'red'
+
+
+data = main.call_procedure('select_query_1', username, date, color)
 print(data)
-
-date = '2018-04-12'
-username = 'keksik'
-lp_begin = 'AN'
-
-select = "SELECT * FROM " \
-         "Cars C JOIN " \
-         "Custimer Cu JOIN Order O ON " \
-         "Cu.username = '" + username + "' and O.StartTime between '" + date + "' and '" + date + " 23:59:59'" \
-                                                                                                  "WHERE C.color = 'red' and SUBSTRING(c.LicensePlate,1,2)='" + lp_begin + "'"
