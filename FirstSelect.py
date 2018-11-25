@@ -1,14 +1,15 @@
 import main
-
-data = main.execute('SELECT * FROM Location')
-print(data)
+import pymysql
 
 date = '2018-04-12'
 username = 'keksik'
 lp_begin = 'AN'
+color = 'red'
 
-select = "SELECT * FROM " \
-         "Cars C JOIN " \
-         "Custimer Cu JOIN Order O ON " \
-         "Cu.username = '" + username + "' and O.StartTime between '" + date + "' and '" + date + " 23:59:59'" \
-                                                                                                  "WHERE C.color = 'red' and SUBSTRING(c.LicensePlate,1,2)='" + lp_begin + "'"
+select = f"SELECT * FROM Customer JOIN PersonalInfo ON PersonalInfo.Name='{username}' JOIN `Order` ON `Order`.StartTime between '{date}' and '{date} 23:59:59' JOIN Vehicle WHERE Vehicle.Color = '{color}'"
+
+#SELECT * FROM Customer JOIN PersonalInfo ON PersonalInfo.Name='Rinat' JOIN `Order` ON `Order`.StartTime between '2017-01-29 14:54:00' and '2017-01-29 14:54:00' JOIN Vehicle WHERE Vehicle.Color = 'red'
+
+data = main.execute(select)
+print(data)
+
