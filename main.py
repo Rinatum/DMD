@@ -24,6 +24,8 @@ def execute(sql, *args, commit=False):
         return ans
 
 
+
+
 def call_procedure(procedure_name, *args):
     try:
         db = connect()

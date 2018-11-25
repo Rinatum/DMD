@@ -1,5 +1,4 @@
 import main
-
 date = '2018-09-23'
 username = 'Gfycyd'
 color = 'red'
