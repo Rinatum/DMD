@@ -1,7 +1,8 @@
 # DMD project ( Database TAXI)
 
 
-## To open this project you need to install:
+## To open this project you need to install
+(check requirements.txt):
   * python intrepretatore(3 version)
   * install Kivy-Garden==0.1.4
   * Install all librires for project( their are at the head of each file)
