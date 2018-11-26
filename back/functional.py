@@ -30,17 +30,29 @@ def test4():
     return str(t_tuple)
 
 
-def test5():
-    t_tuple = 1, 0, 'test5', 'test'
-    return str(t_tuple)
+def test5(date):
+    data = base.call_procedure('select_query_5', date)
+    answ = ''
+    for i in data:
+        answ += str(i[0]) + '\n'
+    return answ
 
+def test6():
+    data = base.call_procedure('select_query_6_start')
+    answ = 'OrdersAmount#1  PickUpPoint  Time  OrderAmount#2  Destination  Time#2'
+    for i in data:
+        answ += str(i[0]) + '   -----    ' + str(i[1]) + '   -----   ' + str(i[2]) + '   -----   ' + str(
+            i[3]) + '   -----   ' + str(i[4]) + '   -----   ' + str(i[5]) + '\n'
+    return answ
 
 def test7():
+    data = base.call_procedure('select_query_7')
     data = base.call_procedure('select_query_7')
     answ = ''
     for i in data:
         answ += str(i[0]) + ' --- ' + str(i[1]) + '\n'
     return answ
+
 
 
 def test9(weeks):

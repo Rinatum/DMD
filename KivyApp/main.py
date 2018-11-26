@@ -37,8 +37,8 @@ class InputScreen(sp.Screen):
         self.btn2.bind(on_press=self.callback2)
         self.btn3.bind(on_press=self.callback3)
         # self.btn4.bind(on_press=self.callback4)
-        # self.btn5.bind(on_press=self.callback5)
-        # self.btn6.bind(on_press=self.callback6)
+        self.btn5.bind(on_press=self.callback5)
+        self.btn6.bind(on_press=self.callback6)
         self.btn7.bind(on_press=self.callback7)
         # self.btn8.bind(on_press=self.callback8)
         self.btn9.bind(on_press=self.callback9)
@@ -69,6 +69,21 @@ class InputScreen(sp.Screen):
         self.parent.transition = sp.SlideTransition(direction='left')
         print(str(self.inp_x2.text))
         Main.plot_screen.data = Label(text=str(fn.test3(self.inp_x2.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback5(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        print(str(self.inp_x4.text))
+        Main.plot_screen.data = Label(text=str(fn.test5(self.inp_x4.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback6(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        Main.plot_screen.data = Label(text=str(fn.test6()))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
