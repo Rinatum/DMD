@@ -63,3 +63,12 @@ def test9(weeks):
         answ += 'Worhsop ' + str(i[0]) +' most often requires '+str(i[1])+' (about '+str(i[2])+' every week on average). \n'
         #answ += str(i[0]) + '   -----    ' + str(i[1]) + '   -----   ' + str(i[2]) +'\n'
     return answ
+
+def test10(date1, date2):
+    data = base.call_procedure('select_query_10',date1, date2)
+    #answ = 'WID   Detail   Amount \n'
+    answ  =''
+    for i in data:
+        answ += str(i[0]) + ' --- ' + str(i[1]) + '\n'
+        #answ += str(i[0]) + '   -----    ' + str(i[1]) + '   -----   ' + str(i[2]) +'\n'
+    return answ

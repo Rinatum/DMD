@@ -42,7 +42,7 @@ class InputScreen(sp.Screen):
         self.btn7.bind(on_press=self.callback7)
         # self.btn8.bind(on_press=self.callback8)
         self.btn9.bind(on_press=self.callback9)
-        # self.btn10.bind(on_press=self.callback10)
+        self.btn10.bind(on_press=self.callback10)
 
     def callback1(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
@@ -99,6 +99,16 @@ class InputScreen(sp.Screen):
         self.parent.transition = sp.SlideTransition(direction='left')
         print(str(self.inp_x8.text))
         Main.plot_screen.data = Label(text=str(fn.test9(self.inp_x8.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback10(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        data = self.inp_x9.text.replace(' ','').split(',')
+        date1 = data[0]
+        date2 = data[1]
+        Main.plot_screen.data = Label(text=str(fn.test10(date1, date2)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
