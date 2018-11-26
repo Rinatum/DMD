@@ -39,16 +39,20 @@ class InputScreen(sp.Screen):
         # self.btn4.bind(on_press=self.callback4)
         # self.btn5.bind(on_press=self.callback5)
         # self.btn6.bind(on_press=self.callback6)
-        # self.btn7.bind(on_press=self.callback7)
+        self.btn7.bind(on_press=self.callback7)
         # self.btn8.bind(on_press=self.callback8)
-        # self.btn9.bind(on_press=self.callback9)
+        self.btn9.bind(on_press=self.callback9)
         # self.btn10.bind(on_press=self.callback10)
 
     def callback1(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        data = self.inp_x0.text
-        Main.plot_screen.data = Label(text=fn.test1())
+        data = self.inp_x0.text.replace(' ', '').split(',')
+        username = data[0]
+        date = data[1]
+        color = data[2]
+        plate = data[3]
+        Main.plot_screen.data = Label(text=fn.test1(username, date, color, plate))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
@@ -66,6 +70,21 @@ class InputScreen(sp.Screen):
         print(str(self.inp_x2.text))
         Main.plot_screen.data = Label(text=str(fn.test3(self.inp_x2.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback7(self, instance):
+        Main.plot_screen.scroll.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        Main.plot_screen.data = Label(text=fn.test7())
+        Main.plot_screen.scroll.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback9(self, instance):
+        Main.plot_screen.scroll.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        data = self.inp_x8.text
+        Main.plot_screen.data = Label(text=fn.test9(data))
+        Main.plot_screen.scroll.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
     def validate_data(self, arr):
