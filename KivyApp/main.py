@@ -35,13 +35,13 @@ class InputScreen(sp.Screen):
         super().__init__(**kw)
         self.btn1.bind(on_press=self.callback1)
         self.btn2.bind(on_press=self.callback2)
-        # self.btn3.bind(on_press=self.callback3)
+        self.btn3.bind(on_press=self.callback3)
         # self.btn4.bind(on_press=self.callback4)
         # self.btn5.bind(on_press=self.callback5)
         # self.btn6.bind(on_press=self.callback6)
-        # self.btn7.bind(on_press=self.callback7)
+        self.btn7.bind(on_press=self.callback7)
         # self.btn8.bind(on_press=self.callback8)
-        # self.btn9.bind(on_press=self.callback9)
+        self.btn9.bind(on_press=self.callback9)
         # self.btn10.bind(on_press=self.callback10)
 
     def callback1(self, instance):
@@ -59,6 +59,31 @@ class InputScreen(sp.Screen):
         Main.plot_screen.data = Label(text=str(fn.test2(self.inp_x1.text)))
         Main.plot_screen.scroll.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
+
+    def callback3(self, instance):
+        Main.plot_screen.scroll.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        data = self.inp_x2.text
+        Main.plot_screen.data = Label(text = fn.test3(data))
+        Main.plot_screen.scroll.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback7(self, instance):
+        Main.plot_screen.scroll.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        Main.plot_screen.data = Label(text = fn.test7())
+        Main.plot_screen.scroll.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback9(self, instance):
+        Main.plot_screen.scroll.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        data = self.inp_x8.text
+        Main.plot_screen.data = Label(text = fn.test9(data))
+        Main.plot_screen.scroll.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+
 
     def validate_data(self, arr):
         if float(self.inp_x0.text) > float(self.inp_xn.text) or float(self.inp_n.text) <= 10 or float(
