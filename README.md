@@ -19,5 +19,5 @@
     7) find licensePlates or 10% the least cars in used ( no input )
     8) 2018-11-01
     9) add # of weeks (for example 4)
-    10).
+    10)to dates(from and end): 2018-11-01, 2018-12-01
 
