@@ -2,6 +2,8 @@ from kivy.app import App
 import kivy.uix.screenmanager as sp
 from kivy.uix.label import Label
 from kivy.properties import ObjectProperty
+from kivy.uix.scrollview import ScrollView
+
 from back import functional as fn
 
 
@@ -45,15 +47,17 @@ class InputScreen(sp.Screen):
     def callback1(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
+        data = self.inp_x0.text
         Main.plot_screen.data = Label(text=fn.test1())
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
     def callback2(self, instance):
-        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        Main.plot_screen.scroll.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        Main.plot_screen.data = Label(text=fn.test2())
-        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        print(str(self.inp_x1.text))
+        Main.plot_screen.data = Label(text=str(fn.test2(self.inp_x1.text)))
+        Main.plot_screen.scroll.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
     def validate_data(self, arr):
@@ -65,13 +69,14 @@ class InputScreen(sp.Screen):
 
 
 class PlotScreen(sp.Screen):
-    main_box = ObjectProperty(None)
-    small_box = ObjectProperty(None)
+    # main_box = ObjectProperty(None)
+    # small_box = ObjectProperty(None)
+    scroll = ScrollView(size_hint=(None, None), size=(100, 400), pos_hint={'center_x': .5, 'center_y': .5})
 
     def __init__(self, **kw):
         super().__init__(**kw)
         self.data = Label(text=fn.test1())
-        self.main_box.add_widget(self.data)
+        self.scroll.add_widget(self.data)
 
 
 class ErrorScreen(sp.Screen):

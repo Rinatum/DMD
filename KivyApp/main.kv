@@ -127,28 +127,40 @@
 
 
 <PlotScreen>
-    name: "Plot"
-    small_box : small_box
-    main_box : main_box
-    back : back
-    BoxLayout:
-        orientation : "vertical"
-        id : main_box
-
-        BoxLayout:
-            orientation : "horizontal"
-            size_hint : 1, 0.2
-
-            Button:
-                id : back
-                text: "Back!"
-                on_release:
-                    app.root.transition = sm.SlideTransition(direction='right')
-                    app.root.current = "input"
-
-        BoxLayout:
-            orientation : "horizontal"
-            id : small_box
+    scroll : scroll
+#    name: "Plot"
+#    small_box : small_box
+#    main_box : main_box
+#    back : back
+#    BoxLayout:
+#        orientation : "vertical"
+#        id : main_box
+#
+#        BoxLayout:
+#            orientation : "horizontal"
+#            size_hint : 1, 0.2
+#
+#            Button:
+#                id : back
+#                text: "Back!"
+#                on_release:
+#                    app.root.transition = sm.SlideTransition(direction='right')
+#                    app.root.current = "input"
+#
+#        BoxLayout:
+#            orientation : "horizontal"
+#            id : small_box
+    ScrollView:
+        id : scroll
+#        box : box
+#        GridLayout:
+#            id : box
+#            cols: 1
+#            padding: 10
+#            spacing: 10
+#            size_hint: None, None
+#            width: 500
+#            height: self.minimum_height
 
 
 <ErrorScreen>
