@@ -3,7 +3,7 @@ import base
 
 def test1(username, date, color, plate):
     data = base.call_procedure('select_query_1', username, date, color,plate)
-    answ = 'LicensePlate'
+    answ = 'LicensePlate:\n'
     for i in data:
         answ += str(i[0]) + '\n'
     return answ
