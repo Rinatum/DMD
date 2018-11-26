@@ -7,7 +7,7 @@
   * Install all librires for project( their are at the head of each file)
   * you need have Internet connection to have write selects
   
-  Selects(cheatsheet):
+ ## Selects(cheatsheet):
 
 
     1) call mydb.select_query_1('aa', '2018-11-01', 'red', 'AN'); (answer 1)
