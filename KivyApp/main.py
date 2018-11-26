@@ -36,11 +36,11 @@ class InputScreen(sp.Screen):
         self.btn1.bind(on_press=self.callback1)
         self.btn2.bind(on_press=self.callback2)
         self.btn3.bind(on_press=self.callback3)
-        # self.btn4.bind(on_press=self.callback4)
+        self.btn4.bind(on_press=self.callback4)
         # self.btn5.bind(on_press=self.callback5)
         # self.btn6.bind(on_press=self.callback6)
         # self.btn7.bind(on_press=self.callback7)
-        # self.btn8.bind(on_press=self.callback8)
+        self.btn8.bind(on_press=self.callback8)
         # self.btn9.bind(on_press=self.callback9)
         # self.btn10.bind(on_press=self.callback10)
 
@@ -55,7 +55,6 @@ class InputScreen(sp.Screen):
     def callback2(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        print(str(self.inp_x1.text))
         Main.plot_screen.data = Label(text=str(fn.test2(self.inp_x1.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
@@ -63,8 +62,21 @@ class InputScreen(sp.Screen):
     def callback3(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        print(str(self.inp_x2.text))
         Main.plot_screen.data = Label(text=str(fn.test3(self.inp_x2.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback4(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        Main.plot_screen.data = Label(text=str(fn.test4(self.inp_x3.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback8(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        Main.plot_screen.data = Label(text=str(fn.test8(self.inp_x7.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
@@ -78,8 +90,6 @@ class InputScreen(sp.Screen):
 
 class PlotScreen(sp.Screen):
     main_box = ObjectProperty(None)
-    # box = ObjectProperty(None)
-    # scroll = ObjectProperty(None)
 
     def __init__(self, **kw):
         super().__init__(**kw)
