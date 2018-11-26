@@ -2,10 +2,10 @@
 
 
 ## To open this project you need to install:
-  *python intrepretatore(3 version)
-  *install Kivy-Garden==0.1.4
-  *Install all librires for project( their are at the head of each file)
-  *you need have Internet connection to have write selects
+  * python intrepretatore(3 version)
+  * install Kivy-Garden==0.1.4
+  * Install all librires for project( their are at the head of each file)
+  * you need have Internet connection to have write selects
   
   Selects(cheatsheet):
 
