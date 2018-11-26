@@ -2,7 +2,7 @@ import main
 date = '2018-09-23'
 
 
-data = main.call_procedure('select_query_3', date)
+data = main.call_procedure('select_query_3_re', date)
 print(data)
 
 
