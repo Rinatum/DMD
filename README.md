@@ -11,7 +11,7 @@
 
     1) call mydb.select_query_1('aa', '2018-11-01', 'red', 'AN'); (answer 1)
     2) call mydb.select_query_5('2018-11-01'); (answer 300, 90 min)
-    3).
+    3) add first day of week('2018-11-03')
     4).
     5).
     6) 6_start for top-start location
