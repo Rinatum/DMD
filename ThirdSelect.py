@@ -1,28 +1,31 @@
+import main
+date = '2018-09-23'
 
 
+data = main.call_procedure('select_query_3', date)
+print(data)
 
-#Pure SQL
-#SELECT COUNT(*)  AS Count, 'Morning' AS 'Time' FROM Vehicle JOIN `Order`
-# WHERE `Order`.StartTime >= '2018-09-23 7:00:00' and `Order`.FinishTime <= '2018-09-23 10:00:00'
-# 		or
-# 	  `Order`.StartTime >= '2018-09-24 7:00:00'+1 and `Order`.FinishTime <= '2018-09-23 10:00:00'+1
+
+#CREATE DEFINER=`katya`@`%` PROCEDURE `select_query_3`(IN fist_day_of_the_week VARCHAR(45))
+# BEGIN
 #
-# 		or
-# 	  `Order`.StartTime >= '2018-09-24 7:00:00'+2 and `Order`.FinishTime <= '2018-09-23 10:00:00'+2
+# 	SELECT COUNT(*) * 100 DIV ((SELECT COUNT(*) FROM Vehicle) * 7) AS Count, 'Morning' AS 'Time' FROM `Order` JOIN Vehicle
+#     WHERE ((HOUR(StartTime) between 7 and 10) OR (HOUR(FinishTime) between 7 and 10))
+#     and ((DATE(StartTime) between fist_day_of_the_week and DATE(fist_day_of_the_week)+7) OR (DATE(FinishTime) between fist_day_of_the_week and DATE(fist_day_of_the_week)+7))
+#     GROUP BY Vehicle.licensePlate
 #
-# 		or
-# 	  `Order`.StartTime >= '2018-09-24 7:00:00'+3 and `Order`.FinishTime <= '2018-09-23 10:00:00'+3
+#     UNION
 #
-# 		or
-# 	  `Order`.StartTime >= '2018-09-24 7:00:00'+4 and `Order`.FinishTime <= '2018-09-23 10:00:00'+4
+#     SELECT COUNT(*) * 100 DIV ((SELECT COUNT(*) FROM Vehicle) * 7) AS Count, 'Afternoon' AS 'Time' FROM `Order` JOIN Vehicle
+#     WHERE ((HOUR(StartTime) between 12 and 14) OR (HOUR(FinishTime) between 12 and 14))
+#     and ((DATE(StartTime) between fist_day_of_the_week and DATE(fist_day_of_the_week)+7) OR (DATE(FinishTime) between fist_day_of_the_week and DATE(fist_day_of_the_week)+7))
+#     GROUP BY Vehicle.licensePlate
 #
-# 		or
-# 	  `Order`.StartTime >= '2018-09-24 7:00:00'+5 and `Order`.FinishTime <= '2018-09-23 10:00:00'+5
+#     UNION
 #
-# 		or
-# 	  `Order`.StartTime >= '2018-09-24 7:00:00'+6 and `Order`.FinishTime <= '2018-09-23 10:00:00'+6
+#     SELECT COUNT(*) * 100 DIV ((SELECT COUNT(*) FROM Vehicle) * 7) AS Count, 'Evening' AS 'Time' FROM `Order` JOIN Vehicle
+#     WHERE ((HOUR(StartTime) between 17 and 19) OR (HOUR(FinishTime) between 17 and 19))
+#     and ((DATE(StartTime) between fist_day_of_the_week and DATE(fist_day_of_the_week)+7) OR (DATE(FinishTime) between fist_day_of_the_week and DATE(fist_day_of_the_week)+7))
+#     GROUP BY Vehicle.licensePlate;
 #
-# UNION
-# SELECT COUNT(*)  AS Count, 'Afternoon' AS 'Time' FROM Vehicle JOIN `Order` WHERE `Order`.StartTime >= '2018-09-23 12:00:00' and `Order`.FinishTime < '2018-09-23 14:00:00'
-# UNION
-# SELECT COUNT(*)  AS Count, 'Evening' AS 'Time' FROM Vehicle JOIN `Order` WHERE `Order`.StartTime >= '2018-09-23 17:00:00' and `Order`.FinishTime < '2018-09-23 18:00:00'
+# END
