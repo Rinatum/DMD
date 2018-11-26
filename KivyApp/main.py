@@ -2,8 +2,6 @@ from kivy.app import App
 import kivy.uix.screenmanager as sp
 from kivy.uix.label import Label
 from kivy.properties import ObjectProperty
-from kivy.uix.scrollview import ScrollView
-
 from back import functional as fn
 
 
@@ -37,25 +35,29 @@ class InputScreen(sp.Screen):
         self.btn2.bind(on_press=self.callback2)
         self.btn3.bind(on_press=self.callback3)
         self.btn4.bind(on_press=self.callback4)
-        # self.btn5.bind(on_press=self.callback5)
-        # self.btn6.bind(on_press=self.callback6)
-        # self.btn7.bind(on_press=self.callback7)
+        self.btn5.bind(on_press=self.callback5)
+        self.btn6.bind(on_press=self.callback6)
+        self.btn7.bind(on_press=self.callback7)
         self.btn8.bind(on_press=self.callback8)
-        # self.btn9.bind(on_press=self.callback9)
-        # self.btn10.bind(on_press=self.callback10)
+        self.btn9.bind(on_press=self.callback9)
+        self.btn10.bind(on_press=self.callback10)
 
     def callback1(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        data = self.inp_x0.text
-        Main.plot_screen.data = Label(text=fn.test1())
+        data = self.inp_x0.text.replace(' ', '').split(',')
+        username = data[0]
+        date = data[1]
+        color = data[2]
+        plate = data[3]
+        Main.plot_screen.data = Label(text=fn.select1(username, date, color, plate))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
     def callback2(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        Main.plot_screen.data = Label(text=str(fn.test2(self.inp_x1.text)))
+        Main.plot_screen.data = Label(text=str(fn.select2(self.inp_x1.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
@@ -63,6 +65,8 @@ class InputScreen(sp.Screen):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
         Main.plot_screen.data = Label(text=str(fn.test3(self.inp_x2.text)))
+        print(str(self.inp_x2.text))
+        Main.plot_screen.data = Label(text=str(fn.select3(self.inp_x2.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
@@ -73,10 +77,52 @@ class InputScreen(sp.Screen):
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
+
+    def callback5(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        print(str(self.inp_x4.text))
+        Main.plot_screen.data = Label(text=str(fn.select5(self.inp_x4.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback6(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        Main.plot_screen.data = Label(text=str(fn.select6()))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback7(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        Main.plot_screen.data = Label(text=str(fn.select7()))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
     def callback8(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
         Main.plot_screen.data = Label(text=str(fn.test8(self.inp_x7.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+
+    def callback9(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        print(str(self.inp_x8.text))
+        Main.plot_screen.data = Label(text=str(fn.select9(self.inp_x8.text)))
+        Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
+        self.parent.current = "Plot"
+
+    def callback10(self, instance):
+        Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
+        self.parent.transition = sp.SlideTransition(direction='left')
+        data = self.inp_x9.text.replace(' ','').split(',')
+        date1 = data[0]
+        date2 = data[1]
+        Main.plot_screen.data = Label(text=str(fn.select10(date1, date2)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
@@ -86,6 +132,7 @@ class InputScreen(sp.Screen):
             return False
 
         return True
+
 
 
 class PlotScreen(sp.Screen):
