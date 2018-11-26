@@ -47,8 +47,12 @@ class InputScreen(sp.Screen):
     def callback1(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        data = self.inp_x0.text
-        Main.plot_screen.data = Label(text=fn.test1())
+        data = self.inp_x0.text.replace(' ','').split(',')
+        username = data[0]
+        date = data[1]
+        color = data[2]
+        plate = data[3]
+        Main.plot_screen.data = Label(text=fn.test1(username, date,color,plate))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
@@ -100,7 +104,7 @@ class PlotScreen(sp.Screen):
 
     def __init__(self, **kw):
         super().__init__(**kw)
-        self.data = Label(text=fn.test1())
+        self.data = Label(text='krya')
         self.scroll.add_widget(self.data)
 
 
