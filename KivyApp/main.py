@@ -64,8 +64,6 @@ class InputScreen(sp.Screen):
     def callback3(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        Main.plot_screen.data = Label(text=str(fn.test3(self.inp_x2.text)))
-        print(str(self.inp_x2.text))
         Main.plot_screen.data = Label(text=str(fn.select3(self.inp_x2.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
@@ -77,11 +75,9 @@ class InputScreen(sp.Screen):
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
-
     def callback5(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        print(str(self.inp_x4.text))
         Main.plot_screen.data = Label(text=str(fn.select5(self.inp_x4.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
@@ -107,11 +103,9 @@ class InputScreen(sp.Screen):
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
 
-
     def callback9(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        print(str(self.inp_x8.text))
         Main.plot_screen.data = Label(text=str(fn.select9(self.inp_x8.text)))
         Main.plot_screen.main_box.add_widget(Main.plot_screen.data)
         self.parent.current = "Plot"
@@ -119,7 +113,7 @@ class InputScreen(sp.Screen):
     def callback10(self, instance):
         Main.plot_screen.main_box.remove_widget(Main.plot_screen.data)
         self.parent.transition = sp.SlideTransition(direction='left')
-        data = self.inp_x9.text.replace(' ','').split(',')
+        data = self.inp_x9.text.replace(' ', '').split(',')
         date1 = data[0]
         date2 = data[1]
         Main.plot_screen.data = Label(text=str(fn.select10(date1, date2)))
@@ -132,7 +126,6 @@ class InputScreen(sp.Screen):
             return False
 
         return True
-
 
 
 class PlotScreen(sp.Screen):
