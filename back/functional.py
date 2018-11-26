@@ -58,7 +58,7 @@ def select6():
 def select7():
     data = base.call_procedure('select_query_7')
     data = base.call_procedure('select_query_7')
-    answ = 'LicensePlate Orders'
+    answ = 'LicensePlate Orders\n'
     for i in data:
         answ += str(i[0]) + ' --- ' + str(i[1]) + '\n'
     return answ
