@@ -15,9 +15,9 @@
     4).
     5).
     6) 6_start for top-start location
-       6_destination - top destination location
-    7) find licensePlates or 10% the least cars in used
-    8) .
-    9) .
+       6_destination - top destination location (no input )
+    7) find licensePlates or 10% the least cars in used ( no input )
+    8) 2018-11-01
+    9) add # of weeks (for example 4)
     10).
 
