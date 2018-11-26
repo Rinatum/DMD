@@ -39,10 +39,14 @@ def select5(date):
 
 def select6():
     data = base.call_procedure('select_query_6_start')
-    answ = 'OrdersAmount#1  PickUpPoint  Time  OrderAmount#2  Destination  Time#2'
+    data2 = base.call_procedure('select_query_6_destination')
+    answ = 'OrdersAmount  PickUpPoint  Time \n'
     for i in data:
-        answ += str(i[0]) + '   -----    ' + str(i[1]) + '   -----   ' + str(i[2]) + '   -----   ' + str(
-            i[3]) + '   -----   ' + str(i[4]) + '   -----   ' + str(i[5]) + '\n'
+        answ += str(i[0]) + '   -----    ' + str(i[1]) + '   -----   ' + str(i[2]) + '\n'
+    answ += '\nOrdersAmount  Destination  Time \n'
+    for i in data2:
+        answ += str(i[0]) + '   -----    ' + str(i[1]) + '   -----   ' + str(i[2]) + '\n'
+
     return answ
 
 def select7():
