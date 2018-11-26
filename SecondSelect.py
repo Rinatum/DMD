@@ -20,4 +20,6 @@ select = "DELIMITER // -- is imporant" \
                                            "SELECT @result;" \
                                            "END //"
 
-print(main.call_procedure('examaple'))
+date = '2018-09-03'
+
+print(main.call_procedure('select_query_2', date))

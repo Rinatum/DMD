@@ -1,4 +1,5 @@
 import pymysql
+
 DB_HOST = "dmdproject.c6oqyq6orxxy.us-east-1.rds.amazonaws.com"
 DB_USER = "katya"
 DB_PASSWORD = "princess123"
@@ -24,18 +25,15 @@ def execute(sql, *args, commit=False):
         return ans
 
 
-
-
 def call_procedure(procedure_name, *args):
     try:
         db = connect()
         cursor = db.cursor()
         cursor.callproc(procedure_name, args)
-        result1 = cursor.fetchall()
+        result = cursor.fetchall()
         cursor.close()
         db.close()
-        return result1
+        return result
 
     except Exception as e:
         print(e)
-

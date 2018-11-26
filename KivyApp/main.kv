@@ -1,0 +1,177 @@
+#:kivy 1.1.0
+#: import sm kivy.uix.screenmanager
+
+<InputScreen>:
+    name: "input"
+    btn1 : btn1
+    btn2 : btn2
+    btn3 : btn3
+    btn4 : btn4
+    btn5 : btn5
+    btn6 : btn6
+    btn7 : btn7
+    btn8 : btn8
+    btn9 : btn9
+    btn10 : btn10
+    inp_x0: inp_x0
+    inp_x1: inp_x1
+    inp_x2: inp_x2
+    inp_x3: inp_x3
+    inp_x4: inp_x4
+    inp_x5: inp_x5
+    inp_x6: inp_x6
+    inp_x7: inp_x7
+    inp_x8: inp_x8
+    inp_x9: inp_x9
+
+
+#    GridLayout:
+#        cols : 2
+#
+#        Label:
+#            text : "Enter x0:"
+#        TextInput:
+#            id : inp_x0
+#
+#        Label:
+#            text : "Enter y0:"
+#        TextInput:
+#            id : inp_y0
+#
+#        Label:
+#            text : "Enter n:"
+#        TextInput:
+#            id: inp_n
+#
+#        Label:
+#            text : "Enter xn:"
+#        TextInput:
+#            id: inp_xn
+#
+#        Button:
+#            text: "Solve Initial Value Problem!"
+#            id: btn1
+#            on_release:
+    GridLayout:
+        cols : 2
+        rows : 10
+        Button:
+            text: "test select #1"
+            id: btn1
+        TextInput:
+            id : inp_x0
+
+        Button:
+            text: "test select #2"
+            id: btn2
+            on_release:
+
+        TextInput:
+            id : inp_x1
+
+        Button:
+            text: "test select #3"
+            id: btn3
+            on_release:
+        TextInput:
+            id : inp_x2
+
+        Button:
+            text: "test select #4"
+            id: btn4
+            on_release:
+        TextInput:
+            id : inp_x3
+
+        Button:
+            text: "test select #5"
+            id: btn5
+            on_release:
+        TextInput:
+            id : inp_x4
+
+        Button:
+            text: "test select #6"
+            id: btn6
+            on_release:
+        TextInput:
+            id : inp_x5
+
+        Button:
+            text: "test select #7"
+            id: btn7
+            on_release:
+        TextInput:
+            id : inp_x6
+
+        Button:
+            text: "test select #8"
+            id: btn8
+            on_release:
+        TextInput:
+            id : inp_x7
+
+        Button:
+            text: "test select #9"
+            id: btn9
+            on_release:
+        TextInput:
+            id : inp_x8
+
+        Button:
+            text: "test select #10"
+            id: btn10
+        TextInput:
+            id : inp_x9
+
+
+
+<PlotScreen>
+    name: "Plot"
+    small_box : small_box
+    main_box : main_box
+    back : back
+    BoxLayout:
+        orientation : "vertical"
+        id : main_box
+
+        BoxLayout:
+            orientation : "horizontal"
+            size_hint : 1, 0.2
+
+            Button:
+                id : back
+                text: "Back!"
+                on_release:
+                    app.root.transition = sm.SlideTransition(direction='right')
+                    app.root.current = "input"
+
+        BoxLayout:
+            orientation : "horizontal"
+            id : small_box
+
+
+<ErrorScreen>
+    name: "error"
+    main_box : main_box
+    small_box : small_box
+    BoxLayout:
+        id : main_box
+        orientation : "vertical"
+        BoxLayout:
+            orientation : "horizontal"
+            size_hint : 1, 0.2
+            id : small_box
+
+            Button:
+                text: "Back!"
+                on_release:
+                    app.root.transition = sm.SlideTransition(direction='right')
+                    app.root.current = "Plot"
+
+        BoxLayout:
+            orientation : "horizontal"
+            id : small_box
+
+
+
